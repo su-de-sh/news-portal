@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Search, User } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { ThemeToggle } from '../theme/ThemeToggle';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,13 +20,13 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white shadow-lg border-b-2 border-nepal-red sticky top-0 z-50">
+    <header className="bg-card/80 backdrop-blur-md shadow-modern border-b border-border sticky top-0 z-50 transition-colors">
       {/* Top Bar */}
-      <div className="bg-nepal-red text-white py-2">
+      <div className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-4">
-              <span>Breaking News</span>
+              <span className="font-medium">Breaking News</span>
               <span className="animate-pulse">•</span>
             </div>
             <div className="flex items-center space-x-4">
@@ -60,14 +61,14 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-nepal-red font-medium transition-colors">
+            <Link href="/" className="text-foreground hover:text-primary-600 font-medium transition-colors">
               Home
             </Link>
             {categories.map((category) => (
               <Link
                 key={category.slug}
                 href={`/category/${category.slug}`}
-                className="text-gray-700 hover:text-nepal-red font-medium transition-colors"
+                className="text-foreground hover:text-primary-600 font-medium transition-colors"
               >
                 {category.name}
               </Link>
@@ -80,10 +81,12 @@ const Header: React.FC = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-gray-700 hover:text-nepal-red"
+              className="text-muted-foreground hover:text-foreground"
             >
               <Search className="h-5 w-5" />
             </Button>
+            
+            <ThemeToggle />
             
             <div className="hidden md:flex items-center space-x-2">
               <Button variant="ghost" asChild>
@@ -108,15 +111,15 @@ const Header: React.FC = () => {
 
         {/* Search Bar */}
         {isSearchOpen && (
-          <div className="pb-4">
+          <div className="pb-4 animate-slide-up">
             <div className="max-w-md mx-auto">
               <div className="relative">
                 <input
                   type="text"
                   placeholder="Search news..."
-                  className="w-full px-4 py-2 pl-10 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nepal-red focus:border-transparent"
+                  className="w-full px-4 py-3 pl-12 pr-4 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
                 />
-                <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               </div>
             </div>
           </div>
@@ -125,11 +128,11 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="lg:hidden border-t bg-white">
+        <div className="lg:hidden border-t border-border bg-card animate-slide-up">
           <div className="px-4 py-2 space-y-1">
             <Link
               href="/"
-              className="block px-3 py-2 text-gray-700 hover:text-nepal-red font-medium"
+              className="block px-3 py-2 text-foreground hover:text-primary-600 font-medium rounded-lg hover:bg-muted transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
@@ -138,23 +141,27 @@ const Header: React.FC = () => {
               <Link
                 key={category.slug}
                 href={`/category/${category.slug}`}
-                className="block px-3 py-2 text-gray-700 hover:text-nepal-red font-medium"
+                className="block px-3 py-2 text-foreground hover:text-primary-600 font-medium rounded-lg hover:bg-muted transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {category.name}
               </Link>
             ))}
-            <div className="pt-4 border-t">
+            <div className="pt-4 border-t border-border">
+              <div className="flex items-center justify-between px-3 py-2">
+                <span className="text-muted-foreground text-sm">Theme</span>
+                <ThemeToggle />
+              </div>
               <Link
                 href="/login"
-                className="block px-3 py-2 text-gray-700 hover:text-nepal-red font-medium"
+                className="block px-3 py-2 text-foreground hover:text-primary-600 font-medium rounded-lg hover:bg-muted transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Login
               </Link>
               <Link
                 href="/register"
-                className="block px-3 py-2 text-gray-700 hover:text-nepal-red font-medium"
+                className="block px-3 py-2 text-foreground hover:text-primary-600 font-medium rounded-lg hover:bg-muted transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sign Up

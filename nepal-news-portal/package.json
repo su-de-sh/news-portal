@@ -1,0 +1,53 @@
+{
+  "name": "nepal-news-portal",
+  "version": "1.0.0",
+  "description": "A modern news portal for Nepal, built with Next.js and Tailwind CSS.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "next": "14.2.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@prisma/client": "^5.15.0",
+    "prisma": "^5.15.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "next-auth": "^4.24.7",
+    "lucide-react": "^0.395.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "^3.4.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "@tailwindcss/typography": "^0.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.4",
+    "typescript": "^5.5.2"
+  },
+  "keywords": [
+    "news",
+    "portal",
+    "nepal",
+    "nextjs",
+    "tailwindcss"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

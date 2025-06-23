@@ -1,34 +1,38 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Moon, Sun, Monitor } from 'lucide-react';
-import { useTheme } from './ThemeProvider';
-import { Button } from '../ui/Button';
+import React from "react";
+import { Moon, Sun, Monitor } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
+import { Button } from "../ui/Button";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else if (theme === 'dark') {
-      setTheme('system');
+    if (theme === "light") {
+      setTheme("dark");
+    } else if (theme === "dark") {
+      setTheme("system");
     } else {
-      setTheme('light');
+      setTheme("light");
     }
   };
 
   const getIcon = () => {
-    if (theme === 'system') {
+    if (theme === "system") {
       return <Monitor className="h-4 w-4" />;
     }
-    return resolvedTheme === 'dark' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />;
+    return resolvedTheme === "dark" ? (
+      <Moon className="h-4 w-4" />
+    ) : (
+      <Sun className="h-4 w-4" />
+    );
   };
 
   const getTooltip = () => {
-    if (theme === 'light') return 'Switch to dark mode';
-    if (theme === 'dark') return 'Switch to system mode';
-    return 'Switch to light mode';
+    if (theme === "light") return "Switch to dark mode";
+    if (theme === "dark") return "Switch to system mode";
+    return "Switch to light mode";
   };
 
   return (
@@ -52,9 +56,9 @@ export function ThemeToggleDropdown() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const themes = [
-    { value: 'light', label: 'Light', icon: Sun },
-    { value: 'dark', label: 'Dark', icon: Moon },
-    { value: 'system', label: 'System', icon: Monitor },
+    { value: "light", label: "Light", icon: Sun },
+    { value: "dark", label: "Dark", icon: Moon },
+    { value: "system", label: "System", icon: Monitor },
   ] as const;
 
   return (
@@ -65,9 +69,9 @@ export function ThemeToggleDropdown() {
         onClick={() => setIsOpen(!isOpen)}
         className="relative"
       >
-        {theme === 'light' && <Sun className="h-4 w-4" />}
-        {theme === 'dark' && <Moon className="h-4 w-4" />}
-        {theme === 'system' && <Monitor className="h-4 w-4" />}
+        {theme === "light" && <Sun className="h-4 w-4" />}
+        {theme === "dark" && <Moon className="h-4 w-4" />}
+        {theme === "system" && <Monitor className="h-4 w-4" />}
         <span className="sr-only">Toggle theme</span>
       </Button>
 
@@ -87,8 +91,8 @@ export function ThemeToggleDropdown() {
                 }}
                 className={`flex w-full items-center px-3 py-2 text-sm rounded-lg transition-colors ${
                   theme === value
-                    ? 'bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100'
-                    : 'hover:bg-muted text-muted-foreground hover:text-foreground'
+                    ? "bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100"
+                    : "hover:bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <Icon className="mr-2 h-4 w-4" />

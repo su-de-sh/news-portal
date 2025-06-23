@@ -1,6 +1,14 @@
-import React from 'react';
-import Link from 'next/link';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
@@ -16,20 +24,33 @@ const Footer: React.FC = () => {
               <h3 className="text-xl font-bold">Nepal News</h3>
             </div>
             <p className="text-gray-400 mb-4">
-              Your trusted source for authentic news from Nepal and around the world. 
-              Committed to delivering accurate, timely, and unbiased reporting.
+              Your trusted source for authentic news from Nepal and around the
+              world. Committed to delivering accurate, timely, and unbiased
+              reporting.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
@@ -40,27 +61,42 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/category/politics" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/category/politics"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Politics
                 </Link>
               </li>
               <li>
-                <Link href="/category/sports" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/category/sports"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Sports
                 </Link>
               </li>
               <li>
-                <Link href="/category/business" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/category/business"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Business
                 </Link>
               </li>
               <li>
-                <Link href="/category/technology" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/category/technology"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Technology
                 </Link>
               </li>
@@ -72,27 +108,42 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/about"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/careers"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/advertise" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/advertise"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Advertise
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/privacy"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -123,16 +174,26 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Nepal News Portal. All rights reserved.
+              © {new Date().getFullYear()} Nepal News Portal. All rights
+              reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link
+                href="/terms"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link
+                href="/privacy"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link
+                href="/cookies"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
+              >
                 Cookie Policy
               </Link>
             </div>

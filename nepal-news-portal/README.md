@@ -5,6 +5,7 @@ A modern, responsive news portal website built with Next.js, Tailwind CSS, and P
 ## 🚀 Features
 
 ### Core Features
+
 - **Responsive Design**: Modern UI that works perfectly on desktop, tablet, and mobile devices
 - **Category-based News**: Organized content across Politics, Sports, Business, Technology, Entertainment, and Health
 - **Featured Articles**: Highlight important news with large hero sections
@@ -14,6 +15,7 @@ A modern, responsive news portal website built with Next.js, Tailwind CSS, and P
 - **Admin Panel**: Content management for editors and administrators
 
 ### Technical Features
+
 - **Server-side Rendering**: Built with Next.js 14 for optimal performance
 - **Type Safety**: Full TypeScript implementation
 - **Database Integration**: PostgreSQL with Prisma ORM
@@ -25,12 +27,14 @@ A modern, responsive news portal website built with Next.js, Tailwind CSS, and P
 ## 🎨 Design System
 
 ### Color Palette
+
 - **Nepal Red**: `#DC143C` - Primary brand color inspired by Nepal's flag
-- **Nepal Blue**: `#003893` - Secondary brand color from Nepal's flag  
+- **Nepal Blue**: `#003893` - Secondary brand color from Nepal's flag
 - **Accent Colors**: Blue and orange gradients for highlights
 - **Neutral Colors**: Comprehensive gray scale for content
 
 ### Typography
+
 - **Display Font**: Poppins for headings and important text
 - **Body Font**: Inter for readable content
 - **Nepali Font**: Noto Sans Devanagari for Nepali text support
@@ -48,6 +52,7 @@ A modern, responsive news portal website built with Next.js, Tailwind CSS, and P
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18.17 or later
 - PostgreSQL database
 - npm or yarn package manager
@@ -55,22 +60,26 @@ A modern, responsive news portal website built with Next.js, Tailwind CSS, and P
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd nepal-news-portal
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
+
    ```bash
    cp .env.example .env
    ```
-   
+
    Update the `.env` file with your database URL and other configuration:
+
    ```env
    DATABASE_URL=postgresql://username:password@localhost:5432/nepal_news_portal
    NEXT_PUBLIC_API_URL=http://localhost:3000/api
@@ -79,18 +88,20 @@ A modern, responsive news portal website built with Next.js, Tailwind CSS, and P
    ```
 
 4. **Set up the database**
+
    ```bash
    # Generate Prisma client
    npx prisma generate
-   
+
    # Push the schema to your database
    npx prisma db push
-   
+
    # (Optional) Seed the database with sample data
    npx prisma db seed
    ```
 
 5. **Start the development server**
+
    ```bash
    npm run dev
    ```

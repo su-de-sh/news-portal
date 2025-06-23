@@ -1,10 +1,10 @@
-import React from 'react';
-import NewsCard from './NewsCard';
-import { News } from '../../types';
+import React from "react";
+import NewsCard from "./NewsCard";
+import { News } from "../../types";
 
 interface NewsGridProps {
   news: News[];
-  variant?: 'default' | 'masonry';
+  variant?: "default" | "masonry";
   columns?: 2 | 3 | 4;
   showLoadMore?: boolean;
   onLoadMore?: () => void;
@@ -13,15 +13,15 @@ interface NewsGridProps {
 
 const NewsGrid: React.FC<NewsGridProps> = ({
   news,
-  variant = 'default',
+  variant = "default",
   columns = 3,
   showLoadMore = false,
   onLoadMore,
-  loading = false
+  loading = false,
 }) => {
   const getGridClasses = () => {
-    const baseClasses = 'grid gap-6 animate-fade-in';
-    
+    const baseClasses = "grid gap-6 animate-fade-in";
+
     switch (columns) {
       case 2:
         return `${baseClasses} grid-cols-1 md:grid-cols-2`;
@@ -58,8 +58,12 @@ const NewsGrid: React.FC<NewsGridProps> = ({
         <div className="mx-auto w-24 h-24 bg-muted rounded-full flex items-center justify-center mb-4">
           <span className="text-4xl">📰</span>
         </div>
-        <h3 className="text-lg font-semibold text-foreground mb-2">No news found</h3>
-        <p className="text-muted-foreground">Check back later for the latest updates.</p>
+        <h3 className="text-lg font-semibold text-foreground mb-2">
+          No news found
+        </h3>
+        <p className="text-muted-foreground">
+          Check back later for the latest updates.
+        </p>
       </div>
     );
   }
@@ -91,7 +95,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
                 <span>Loading...</span>
               </div>
             ) : (
-              'Load More Articles'
+              "Load More Articles"
             )}
           </button>
         </div>

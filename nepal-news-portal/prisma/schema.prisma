@@ -11,50 +11,50 @@ datasource db {
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
-  name        String
-  email       String    @unique
-  password    String
-  role        UserRole  @default(READER)
-  avatar      String?
-  bio         String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  articles    News[]
-  comments    Comment[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  role      UserRole  @default(READER)
+  avatar    String?
+  bio       String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  articles  News[]
+  comments  Comment[]
 
   @@map("users")
 }
 
 model News {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   title       String
-  slug        String   @unique
+  slug        String    @unique
   excerpt     String?
   content     String
   image       String?
-  published   Boolean  @default(false)
-  featured    Boolean  @default(false)
-  views       Int      @default(0)
-  publishedAt DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  published   Boolean   @default(false)
+  featured    Boolean   @default(false)
+  views       Int       @default(0)
+  publishedAt DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   authorId    Int
   categoryId  Int
-  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  category    Category @relation(fields: [categoryId], references: [id])
-  tags        Tag[]    @relation("NewsToTag")
+  author      User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category    Category  @relation(fields: [categoryId], references: [id])
+  tags        Tag[]     @relation("NewsToTag")
   comments    Comment[]
 
   @@map("news")
 }
 
 model Category {
-  id          Int    @id @default(autoincrement())
-  name        String @unique
-  slug        String @unique
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  slug        String  @unique
   description String?
-  color       String @default("#3B82F6")
+  color       String  @default("#3B82F6")
   news        News[]
 
   @@map("categories")

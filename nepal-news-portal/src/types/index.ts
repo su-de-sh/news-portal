@@ -2,7 +2,7 @@ export interface User {
   id: number;
   name: string;
   email: string;
-  role: 'ADMIN' | 'EDITOR' | 'AUTHOR' | 'READER';
+  role: "ADMIN" | "EDITOR" | "AUTHOR" | "READER";
   avatar?: string;
   bio?: string;
   createdAt: Date;
@@ -59,7 +59,7 @@ export interface Comment {
 
 export interface NewsCardProps {
   news: News;
-  variant?: 'default' | 'featured' | 'compact';
+  variant?: "default" | "featured" | "compact";
 }
 
 export interface PaginationProps {

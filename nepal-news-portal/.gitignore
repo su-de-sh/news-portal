@@ -10,3 +10,7 @@ yarn-error.log
 package-lock.json               
 .next
 .next
+.vercel
+tsconfig.tsbuildinfo
+*.log
+

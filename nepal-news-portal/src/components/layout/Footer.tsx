@@ -116,36 +116,40 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/careers"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors cursor-not-allowed opacity-60"
+                  title="Coming Soon"
                 >
                   Careers
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors cursor-not-allowed opacity-60"
+                  title="Coming Soon"
                 >
                   Contact Us
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/advertise"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors cursor-not-allowed opacity-60"
+                  title="Coming Soon"
                 >
                   Advertise
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/privacy"
-                  className="text-gray-400 hover:text-white transition-colors"
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors cursor-not-allowed opacity-60"
+                  title="Coming Soon"
                 >
                   Privacy Policy
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -178,24 +182,27 @@ const Footer: React.FC = () => {
               reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                href="/terms"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white text-sm transition-colors cursor-not-allowed opacity-60"
+                title="Coming Soon"
               >
                 Terms of Service
-              </Link>
-              <Link
-                href="/privacy"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white text-sm transition-colors cursor-not-allowed opacity-60"
+                title="Coming Soon"
               >
                 Privacy Policy
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white text-sm transition-colors cursor-not-allowed opacity-60"
+                title="Coming Soon"
               >
                 Cookie Policy
-              </Link>
+              </a>
             </div>
           </div>
         </div>

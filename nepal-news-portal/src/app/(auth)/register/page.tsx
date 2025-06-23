@@ -1,55 +1,121 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input'; // Assuming you have an Input component
-import { registerUser } from '@/lib/auth'; // Function to handle registration logic
+"use client";
+
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "components/ui/Button";
+import { Input } from "components/ui/Input";
+import { registerUser } from "lib/auth";
+import Link from "next/link";
 
 const RegisterPage = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleRegister = async (e) => {
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError('');
+    setError("");
+    setIsLoading(true);
 
     try {
-      await registerUser({ email, password });
-      router.push('/login'); // Redirect to login after successful registration
+      await registerUser({ email, password, name });
+      router.push("/login"); // Redirect to login after successful registration
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Registration failed. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        <form onSubmit={handleRegister}>
-          <div className="mb-4">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+          Create Account
+        </h2>
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+            <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
+          </div>
+        )}
+        <form onSubmit={handleRegister} className="space-y-4">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            >
+              Full Name
+            </label>
             <Input
+              id="name"
+              type="text"
+              placeholder="Enter your full name"
+              value={name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setName(e.target.value)
+              }
+              required
+              className="w-full"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            >
+              Email
+            </label>
+            <Input
+              id="email"
               type="email"
-              placeholder="Email"
+              placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
               required
+              className="w-full"
             />
           </div>
-          <div className="mb-4">
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            >
+              Password
+            </label>
             <Input
+              id="password"
               type="password"
-              placeholder="Password"
+              placeholder="Enter your password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
               required
+              className="w-full"
+              minLength={6}
             />
           </div>
-          <Button type="submit" className="w-full">Register</Button>
+          <Button type="submit" className="w-full mt-6" disabled={isLoading}>
+            {isLoading ? "Creating Account..." : "Register"}
+          </Button>
         </form>
-        <p className="mt-4 text-center">
-          Already have an account? <a href="/login" className="text-blue-500">Login</a>
+        <p className="mt-6 text-center text-gray-600 dark:text-gray-400">
+          Already have an account?{" "}
+          <Link
+            href="/login"
+            className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+          >
+            Sign In
+          </Link>
         </p>
       </div>
     </div>

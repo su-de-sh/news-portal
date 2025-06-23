@@ -12,18 +12,18 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white border-t border-gray-800 dark:border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-nepal-red to-nepal-blue rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">NP</span>
+              <div className="w-8 h-8 bg-gradient-to-r from-nepal-red to-nepal-blue rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-sm">NP</span>
               </div>
-              <h3 className="text-xl font-bold">Nepal News</h3>
+              <h3 className="text-xl font-bold text-white">Nepal News</h3>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 dark:text-gray-500 mb-4 leading-relaxed">
               Your trusted source for authentic news from Nepal and around the
               world. Committed to delivering accurate, timely, and unbiased
               reporting.
@@ -31,25 +31,29 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 transform hover:scale-110"
+                aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 transform hover:scale-110"
+                aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 transform hover:scale-110"
+                aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 transform hover:scale-110"
+                aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />
               </a>
@@ -58,12 +62,12 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 hover:translate-x-1 inline-block"
                 >
                   Home
                 </Link>
@@ -71,7 +75,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/category/politics"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 hover:translate-x-1 inline-block"
                 >
                   Politics
                 </Link>
@@ -79,7 +83,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/category/sports"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 hover:translate-x-1 inline-block"
                 >
                   Sports
                 </Link>
@@ -87,7 +91,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/category/business"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 hover:translate-x-1 inline-block"
                 >
                   Business
                 </Link>
@@ -95,7 +99,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/category/technology"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 dark:text-gray-500 hover:text-white dark:hover:text-gray-300 transition-all duration-200 hover:translate-x-1 inline-block"
                 >
                   Technology
                 </Link>

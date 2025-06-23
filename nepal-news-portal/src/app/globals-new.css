@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 59 130 246;
+    --primary: 220 38 38;
+    --primary-foreground: 255 255 255;
+    --secondary: 241 245 249;
+    --secondary-foreground: 51 65 85;
+    --accent: 241 245 249;
+    --accent-foreground: 51 65 85;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --nepal-red: 220 38 38;
+    --nepal-blue: 0 51 160;
+  }
+
+  .dark {
+    --background: 2 6 23;
+    --foreground: 248 250 252;
+    --card: 15 23 42;
+    --card-foreground: 248 250 252;
+    --popover: 15 23 42;
+    --popover-foreground: 248 250 252;
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 59 130 246;
+    --primary: 239 68 68;
+    --primary-foreground: 255 255 255;
+    --secondary: 30 41 59;
+    --secondary-foreground: 203 213 225;
+    --accent: 30 41 59;
+    --accent-foreground: 203 213 225;
+    --destructive: 220 38 38;
+    --destructive-foreground: 255 255 255;
+    --nepal-red: 239 68 68;
+    --nepal-blue: 59 130 246;
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: rgb(var(--border));
+  }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background: linear-gradient(135deg, rgb(2 6 23) 0%, rgb(15 23 42) 100%);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: rgb(var(--foreground) / 0.8);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--muted-foreground));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--foreground) / 0.8);
+  }
+
+  /* Enhanced scrollbars for dark mode */
+  .dark ::-webkit-scrollbar-track {
+    background: rgb(31 41 55);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgb(75 85 99);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: rgb(107 114 128);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  }
+
+  .btn-primary {
+    @apply bg-red-600 text-white hover:bg-red-700 hover:shadow-lg transform hover:-translate-y-0.5 px-6 py-3;
+  }
+
+  .btn-secondary {
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 px-6 py-3 transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 px-6 py-3 transition-all duration-200;
+  }
+
+  .card {
+    @apply rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-sm dark:shadow-gray-900/20 backdrop-blur-sm transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-red-200 dark:hover:border-red-600 hover:shadow-red-100/50 dark:hover:shadow-red-900/20;
+  }
+
+  .glass {
+    @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-white/20 dark:border-gray-700/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-red-600 via-blue-600 to-red-600 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-red-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+  }
+
+  .nepal-gradient {
+    @apply bg-gradient-to-r from-red-600 via-white dark:via-gray-200 to-blue-600;
+  }
+
+  .news-card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl shadow-sm dark:shadow-gray-900/20 overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-gray-900/40 hover:-translate-y-1 border border-gray-200 dark:border-gray-700;
+  }
+
+  .news-card-overlay {
+    @apply relative bg-gradient-to-t from-black/80 via-black/20 to-transparent;
+  }
+
+  /* Text utilities */
+  .text-clamp-1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .text-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .text-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* Breaking news ticker */
+  .breaking-news-ticker {
+    background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .breaking-news-content {
+    display: flex;
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Category sidebar */
+  .category-card {
+    @apply bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md dark:hover:shadow-gray-900/40 transition-all duration-300 cursor-pointer;
+  }
+
+  .category-card:hover {
+    @apply border-red-200 dark:border-red-600 shadow-md dark:shadow-gray-900/40;
+  }
+
+  /* Newsletter signup */
+  .newsletter-card {
+    @apply bg-gradient-to-br from-red-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700;
+  }
+
+  /* Responsive text sizes */
+  .hero-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  .section-title {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
+  .card-title {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  /* Modern shadows */
+  .shadow-modern {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .shadow-modern-lg {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  /* Enhanced shadows for dark mode */
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .dark .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .dark .shadow-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  /* Modern cards */
+  .modern-card {
+    @apply bg-gray-900 rounded-3xl p-6 text-white shadow-2xl border border-gray-700/50 backdrop-blur-sm transition-all duration-300 hover:shadow-3xl hover:scale-[1.02];
+  }
+
+  .modern-card-light {
+    @apply bg-white rounded-3xl p-6 text-gray-900 shadow-2xl border border-gray-200/50 backdrop-blur-sm transition-all duration-300 hover:shadow-3xl hover:scale-[1.02];
+  }
+
+  /* Advanced hover effects */
+  .modern-hover {
+    @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  .glow-on-hover:hover {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  }
+
+  .dark .glow-on-hover:hover {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Theme transition utilities */
+  .theme-transition {
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Dark mode specific utilities */
+  .dark-card {
+    @apply bg-gray-900 dark:bg-gray-800 border border-gray-800 dark:border-gray-700 shadow-xl dark:shadow-2xl;
+  }
+
+  .dark-text-primary {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+
+  .dark-text-secondary {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+
+  .dark-border {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  .dark-bg-primary {
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .dark-bg-secondary {
+    @apply bg-gray-50 dark:bg-gray-800;
+  }
+
+  /* News card enhancements */
+  .news-card-modern {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm dark:shadow-gray-900/20 overflow-hidden transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-900/40 hover:-translate-y-1 backdrop-blur-sm;
+  }
+
+  /* Glass effects */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    @apply rounded-3xl p-6 transition-all duration-300 hover:bg-white/10;
+  }
+
+  .glass-dark {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Animations */
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  /* Interactive buttons */
+  .interactive-button {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .interactive-button-primary {
+    @apply bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-600 focus:ring-blue-500 dark:focus:ring-blue-400;
+  }
+
+  .interactive-button-secondary {
+    @apply bg-gray-700 dark:bg-gray-600 text-gray-300 dark:text-gray-200 hover:bg-gray-600 dark:hover:bg-gray-500 focus:ring-gray-500 dark:focus:ring-gray-400;
+  }
+
+  /* Carousel styles */
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .carousel-nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-nav:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: white;
+    transform: scale(1.3);
+  }
+}

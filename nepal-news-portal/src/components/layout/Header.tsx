@@ -2,13 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Search, Bell } from "lucide-react";
 import { Button } from "../ui/Button";
 import ThemeToggle from "../ui/ThemeToggle";
+import { UserMenu } from "../ui/UserMenu";
+import useAuth from "@/hooks/useAuth";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isAuthenticated, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,13 +61,15 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
               <div className="w-8 h-8 bg-red-600 dark:bg-red-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                <span className="text-white font-bold text-sm">NP</span>
+                <span className="text-white font-bold text-sm">NB</span>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
-                  Nepal News
+                  NepBuzz
                 </h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">Trusted Source</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
+                  Trusted Source
+                </p>
               </div>
             </Link>
           </div>
@@ -105,18 +110,35 @@ const Header: React.FC = () => {
 
             <ThemeToggle />
 
-            <div className="hidden md:flex items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-                className="hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400"
-              >
-                <Link href="/login" className="text-sm">
-                  Login
-                </Link>
-              </Button>
-            </div>
+            {isAuthenticated ? (
+              <div className="hidden md:flex items-center space-x-4">
+                {/* Notifications */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="relative hover:bg-red-50 dark:hover:bg-red-900/20"
+                >
+                  <Bell className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                  <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                </Button>
+
+                {/* User Menu */}
+                <UserMenu />
+              </div>
+            ) : (
+              <div className="hidden md:flex items-center space-x-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  asChild
+                  className="hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400"
+                >
+                  <Link href="/login" className="text-sm">
+                    Login
+                  </Link>
+                </Button>
+              </div>
+            )}
 
             <Button
               variant="ghost"
@@ -162,13 +184,34 @@ const Header: React.FC = () => {
               </Link>
             ))}
             <div className="pt-3 border-t border-gray-100 dark:border-slate-700">
-              <Link
-                href="/login"
-                className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors text-sm"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Login
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    href="/profile"
+                    className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors text-sm"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Profile Settings
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      signOut({ callbackUrl: "/" });
+                    }}
+                    className="block w-full text-left px-3 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 font-medium rounded-lg text-sm"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/login"
+                  className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         </div>

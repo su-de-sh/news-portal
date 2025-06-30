@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { News } from "types";
-import NewsCard from "components/news/NewsCard";
+import { News } from "@/types";
+import NewsCard from "@/components/news/NewsCard";
 
 const CategoryPage = () => {
   const params = useParams();

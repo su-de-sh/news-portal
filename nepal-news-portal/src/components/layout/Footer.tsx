@@ -62,7 +62,9 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -181,10 +183,9 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Nepal News Portal. All rights
-              reserved.
-            </p>
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              © {new Date().getFullYear()} NepBuzz. All rights reserved.
+            </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
                 href="#"

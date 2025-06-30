@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import ScrollToTop from "../components/ui/ScrollToTop";
-import { ThemeProvider } from "../components/theme/ThemeProvider";
+import { Providers } from "../components/providers/Providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,32 +21,32 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nepalnews.com"),
-  title: "Nepal News Portal - Latest Breaking News from Nepal",
+  title: "NepBuzz - Latest Breaking News from Nepal",
   description:
     "Stay updated with the latest breaking news, politics, sports, business, entertainment, and cultural stories from Nepal and around the world. Your trusted source for authentic journalism.",
   keywords:
     "Nepal news, breaking news, politics, sports, entertainment, business, culture, Kathmandu, Nepal updates, Himalayan news, South Asia news",
-  authors: [{ name: "Nepal News Portal Team" }],
+  authors: [{ name: "NepBuzz Team" }],
   robots: "index, follow",
   openGraph: {
-    title: "Nepal News Portal - Latest Breaking News from Nepal",
+    title: "NepBuzz - Latest Breaking News from Nepal",
     description:
       "Stay updated with the latest breaking news from Nepal. Politics, sports, business, entertainment, and more.",
     type: "website",
     locale: "en_US",
-    siteName: "Nepal News Portal",
+    siteName: "NepBuzz",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Nepal News Portal - Latest News from Nepal",
+        alt: "NepBuzz - Latest News from Nepal",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nepal News Portal - Latest Breaking News from Nepal",
+    title: "NepBuzz - Latest Breaking News from Nepal",
     description: "Stay updated with the latest breaking news from Nepal.",
     images: ["/og-image.jpg"],
   },
@@ -72,14 +72,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <ThemeProvider defaultTheme="system" storageKey="nepal-news-theme">
+        <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
             <ScrollToTop />
           </div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { Button } from '../ui/Button';
+import { signIn } from '@/lib/auth';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -12,21 +13,16 @@ const LoginForm = () => {
     e.preventDefault();
     setError('');
 
-    // Call the API for login
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
+    const result = await signIn('credentials', {
+      redirect: false,
+      email,
+      password,
     });
 
-    if (res.ok) {
-      // Redirect to homepage or dashboard
-      router.push('/');
+    if (result?.error) {
+      setError(result.error);
     } else {
-      const data = await res.json();
-      setError(data.message || 'Login failed. Please try again.');
+      router.push('/');
     }
   };
 

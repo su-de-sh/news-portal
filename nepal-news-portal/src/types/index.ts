@@ -1,3 +1,35 @@
+import { User as NextAuthUser } from "next-auth";
+
+export enum UserRole {
+  ADMIN = "ADMIN",
+  EDITOR = "EDITOR",
+  AUTHOR = "AUTHOR",
+  READER = "READER",
+}
+
+export interface CustomUser extends Omit<NextAuthUser, "id"> {
+  id: string;
+  role: UserRole;
+}
+
+declare module "next-auth" {
+  interface Session {
+    user: CustomUser;
+  }
+}
+
+export interface DBUser {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  role: UserRole;
+  avatar?: string;
+  bio?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface User {
   id: number;
   name: string;

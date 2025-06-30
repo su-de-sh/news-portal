@@ -1,7 +1,7 @@
 import React from "react";
-import { News } from "types";
+import { News } from "@/types";
 import Image from "next/image";
-import { formatDate } from "lib/utils";
+import { formatDate } from "@/lib/utils";
 import {
   Calendar,
   User,
@@ -10,7 +10,7 @@ import {
   Share2,
   BookmarkPlus,
 } from "lucide-react";
-import { Button } from "components/ui/Button";
+import { Button } from "@/components/ui/Button";
 
 interface NewsDetailProps {
   article: News;

@@ -5,15 +5,15 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-          About Nepal News Portal
+          About NepBuzz
         </h1>
 
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            Welcome to Nepal News Portal, your trusted source for authentic news
-            from Nepal and around the world. We are committed to delivering
-            accurate, timely, and unbiased reporting that keeps you informed
-            about the events that matter most.
+            Welcome to NepBuzz, your trusted source for authentic news from
+            Nepal and around the world. We are committed to delivering accurate,
+            timely, and unbiased reporting that keeps you informed about the
+            events that matter most.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">

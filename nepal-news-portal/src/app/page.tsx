@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   TrendingUp,
@@ -526,7 +528,7 @@ const mockGridNews = [
       "600-year-old Buddhist monastery restored using traditional techniques and modern preservation methods.",
     content: "",
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit-crop&auto=format",
     published: true,
     featured: false,
     views: 7340,
@@ -746,7 +748,7 @@ const mockLatestSidebarNews = [
     excerpt:
       "Traditional arts and crafts showcase draws tourists from around the world.",
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000),
     author: { name: "Culture Reporter" },
     category: { name: "Culture", color: "#10B981" },
@@ -775,7 +777,7 @@ const mockTrendingNews = [
     excerpt:
       "Young entrepreneurs drive innovation in fintech and e-commerce sectors",
     image:
-      "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 45 * 60 * 1000),
     author: { name: "Tech Correspondent" },
     category: { name: "Technology", color: "#3B82F6" },
@@ -788,7 +790,7 @@ const mockTrendingNews = [
     excerpt:
       "New facilities and improved trails attract record number of international visitors",
     image:
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
     author: { name: "Tourism Reporter" },
     category: { name: "Tourism", color: "#10B981" },
@@ -801,7 +803,7 @@ const mockTrendingNews = [
     excerpt:
       "Solar and micro-hydro installations bring electricity to remote villages",
     image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 4 * 60 * 60 * 1000),
     author: { name: "Energy Correspondent" },
     category: { name: "Environment", color: "#059669" },
@@ -814,7 +816,7 @@ const mockTrendingNews = [
     excerpt:
       "Annual celebration showcases Nepal's rich traditions to global audience",
     image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000),
     author: { name: "Culture Writer" },
     category: { name: "Culture", color: "#8B5CF6" },
@@ -827,7 +829,7 @@ const mockTrendingNews = [
     excerpt:
       "Modern farming techniques and technology transform rural livelihoods",
     image:
-      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 8 * 60 * 60 * 1000),
     author: { name: "Agriculture Reporter" },
     category: { name: "Agriculture", color: "#F59E0B" },
@@ -843,7 +845,7 @@ const mockEditorsPickNews = [
     excerpt:
       "Comprehensive analysis of Nepal's political transformation since 1990",
     image:
-      "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 12 * 60 * 60 * 1000),
     author: { name: "Political Editor" },
     category: { name: "Politics", color: "#DC143C" },
@@ -856,7 +858,7 @@ const mockEditorsPickNews = [
     excerpt:
       "Scientific study reveals accelerating ice loss threatens regional water security",
     image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 18 * 60 * 60 * 1000),
     author: { name: "Science Editor" },
     category: { name: "Environment", color: "#059669" },
@@ -869,7 +871,7 @@ const mockEditorsPickNews = [
     excerpt:
       "How young Nepali entrepreneurs are driving innovation and creating jobs",
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 24 * 60 * 60 * 1000),
     author: { name: "Business Editor" },
     category: { name: "Business", color: "#3B82F6" },
@@ -882,7 +884,7 @@ const mockEditorsPickNews = [
     excerpt:
       "New policies and digital tools revolutionize education across the nation",
     image:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 36 * 60 * 60 * 1000),
     author: { name: "Education Editor" },
     category: { name: "Education", color: "#8B5CF6" },
@@ -895,7 +897,7 @@ const mockEditorsPickNews = [
     excerpt:
       "Digital health solutions bridge the gap between urban expertise and rural needs",
     image:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 48 * 60 * 60 * 1000),
     author: { name: "Health Editor" },
     category: { name: "Health", color: "#EF4444" },
@@ -912,7 +914,7 @@ const mockBreakingNewsForWidget = [
     excerpt:
       "Government mobilizes resources for immediate assistance to flood victims in western Nepal.",
     image:
-      "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 15 * 60 * 1000), // 15 minutes ago
     author: { name: "Emergency Reporter" },
     category: { name: "Breaking", color: "#DC2626" },
@@ -926,7 +928,7 @@ const mockBreakingNewsForWidget = [
     excerpt:
       "World leaders to gather in Nepal's capital for crucial climate discussions next month.",
     image:
-      "https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 45 * 60 * 1000), // 45 minutes ago
     author: { name: "International Correspondent" },
     category: { name: "Breaking", color: "#DC2626" },
@@ -940,7 +942,7 @@ const mockBreakingNewsForWidget = [
     excerpt:
       "Nepal's economic indicators show strongest performance in recent years with 5.8% growth.",
     image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 90 * 60 * 1000), // 1.5 hours ago
     author: { name: "Economic Analyst" },
     category: { name: "Breaking", color: "#DC2626" },
@@ -954,7 +956,7 @@ const mockBreakingNewsForWidget = [
     excerpt:
       "Infrastructure development brings improved connectivity to isolated villages.",
     image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
     author: { name: "Infrastructure Reporter" },
     category: { name: "Breaking", color: "#DC2626" },
@@ -987,7 +989,7 @@ const bentoCarouselItems = [
     excerpt:
       "Enhanced safety protocols and weather monitoring systems ensure climber security this season.",
     image:
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
     author: { name: "Adventure Reporter" },
     category: { name: "Adventure", color: "#059669" },
@@ -1000,7 +1002,7 @@ const bentoCarouselItems = [
     excerpt:
       "Revolutionary fiber optic network brings high-speed internet to remote mountain villages.",
     image:
-      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&h=600&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&h=600&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 4 * 60 * 60 * 1000),
     author: { name: "Tech Reporter" },
     category: { name: "Technology", color: "#3B82F6" },
@@ -1016,7 +1018,7 @@ const bentoBreakingNews = [
     excerpt:
       "Emergency response teams deployed as tremors felt across multiple districts.",
     image:
-      "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 30 * 60 * 1000),
     author: { name: "Emergency Reporter" },
     category: { name: "Breaking", color: "#DC2626" },
@@ -1030,7 +1032,7 @@ const bentoBreakingNews = [
     excerpt:
       "Landmark legislation aims to preserve biodiversity and combat climate change.",
     image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 1 * 60 * 60 * 1000),
     author: { name: "Political Reporter" },
     category: { name: "Politics", color: "#DC143C" },
@@ -1044,7 +1046,7 @@ const bentoBreakingNews = [
     excerpt:
       "Bilateral trade expected to increase by 40% following new economic partnership.",
     image:
-      "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
     author: { name: "Economic Reporter" },
     category: { name: "Economy", color: "#059669" },
@@ -1061,7 +1063,7 @@ const bentoTrendingNews = [
     excerpt:
       "Local cultural group's performance gains millions of views worldwide, sparking cultural pride movement.",
     image:
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000),
     author: { name: "Culture Reporter" },
     category: { name: "Culture", color: "#8B5CF6" },
@@ -1071,12 +1073,12 @@ const bentoTrendingNews = [
   {
     id: 2,
     title:
-      "Young Entrepreneur's Tech Startup Attracts International Investment",
+      "Young Entrepreneur&apos;s Tech Startup Attracts International Investment",
     slug: "tech-startup-international-investment",
     excerpt:
       "Local innovation in sustainable technology receives $5M funding from Silicon Valley investors.",
     image:
-      "https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 8 * 60 * 60 * 1000),
     author: { name: "Business Reporter" },
     category: { name: "Business", color: "#F59E0B" },
@@ -1090,7 +1092,7 @@ const bentoTrendingNews = [
     excerpt:
       "Nepal's premium honey brand recognized for quality and sustainable beekeeping practices.",
     image:
-      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 12 * 60 * 60 * 1000),
     author: { name: "Agriculture Reporter" },
     category: { name: "Agriculture", color: "#10B981" },
@@ -1107,7 +1109,7 @@ const bentoLatestNews = [
     excerpt:
       "Government announces ambitious plan to improve connectivity in mountainous regions.",
     image:
-      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 2 * 60 * 60 * 1000),
     author: { name: "Priya Thapa" },
     category: { name: "Infrastructure", color: "#3B82F6" },
@@ -1121,7 +1123,7 @@ const bentoLatestNews = [
     excerpt:
       "Cultural celebration showcases Nepal's rich heritage to global audience.",
     image:
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 4 * 60 * 60 * 1000),
     author: { name: "Amit Gurung" },
     category: { name: "Culture", color: "#8B5CF6" },
@@ -1135,7 +1137,7 @@ const bentoLatestNews = [
     excerpt:
       "New teaching methods and digital tools improve learning outcomes in rural schools.",
     image:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 6 * 60 * 60 * 1000),
     author: { name: "Education Reporter" },
     category: { name: "Education", color: "#8B5CF6" },
@@ -1152,7 +1154,7 @@ const bentoEditorsPick = [
     excerpt:
       "Comprehensive analysis of hydroelectric potential and solar energy initiatives transforming the nation's power sector.",
     image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
     author: { name: "Energy Specialist" },
     category: { name: "Energy", color: "#F59E0B" },
@@ -1166,7 +1168,7 @@ const bentoEditorsPick = [
     excerpt:
       "Meet the dedicated individuals working tirelessly to preserve Nepal's endangered species and natural habitats.",
     image:
-      "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
     author: { name: "Wildlife Correspondent" },
     category: { name: "Environment", color: "#10B981" },
@@ -1180,7 +1182,7 @@ const bentoEditorsPick = [
     excerpt:
       "Investigating the challenges and opportunities of Nepal's youth workforce seeking opportunities abroad.",
     image:
-      "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400&h=300&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400&h=300&fit-crop&auto=format",
     publishedAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
     author: { name: "Social Affairs Editor" },
     category: { name: "Society", color: "#EC4899" },
@@ -1204,10 +1206,10 @@ const bentoWeatherData = {
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 transition-colors duration-300 dark:bg-gray-900">
       {/* Bento Layout Section - Interactive News Dashboard */}
       <section className="py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <BentoLayout
             carouselItems={bentoCarouselItems}
             breakingNews={bentoBreakingNews}
@@ -1221,25 +1223,25 @@ const HomePage = () => {
       </section>
 
       {/* Latest News Grid Section - Enhanced */}
-      <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
+      <section className="py-16 bg-white transition-colors duration-300 dark:bg-gray-800">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center mb-8">
             <div className="flex items-center">
-              <Newspaper className="h-6 w-6 text-primary-600 dark:text-primary-400 mr-2" />
+              <Newspaper className="mr-2 w-6 h-6 text-primary-600 dark:text-primary-400" />
               <h2 className="text-3xl font-bold text-foreground dark:text-white">
                 Latest News
               </h2>
             </div>
             <Button
               variant="ghost"
-              className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold"
+              className="font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
             >
               View All News →
             </Button>
           </div>
 
           {/* Grid with responsive columns - Now shows dark cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mb-8">
+          <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-2 lg:grid-cols-3">
             {mockGridNews.slice(0, 12).map((article, index) => (
               <div
                 key={article.id}
@@ -1255,7 +1257,7 @@ const HomePage = () => {
           <div className="text-center">
             <Button
               variant="outline"
-              className="px-8 py-3 rounded-xl font-semibold transition-all hover:scale-105 active:scale-95 border-2 border-primary-200 hover:border-primary-300 hover:bg-primary-50"
+              className="px-8 py-3 font-semibold rounded-xl border-2 transition-all hover:scale-105 active:scale-95 border-primary-200 hover:border-primary-300 hover:bg-primary-50"
             >
               Load More Articles
               <span className="ml-2">({mockGridNews.length - 12} more)</span>
@@ -1265,9 +1267,9 @@ const HomePage = () => {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="py-8 bg-gradient-to-r from-primary-50 to-secondary-50 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="py-8 bg-gradient-to-r border-t from-primary-50 to-secondary-50 border-border">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {[
               {
                 icon: Newspaper,
@@ -1296,7 +1298,7 @@ const HomePage = () => {
             ].map((stat, index) => (
               <div
                 key={stat.label}
-                className="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm dark:shadow-gray-900/20 hover:shadow-md dark:hover:shadow-gray-900/40 transition-shadow duration-300 border border-gray-200 dark:border-gray-700"
+                className="p-4 text-center bg-white rounded-xl border border-gray-200 shadow-sm transition-shadow duration-300 dark:bg-gray-800 dark:shadow-gray-900/20 hover:shadow-md dark:hover:shadow-gray-900/40 dark:border-gray-700"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <stat.icon
@@ -1315,18 +1317,18 @@ const HomePage = () => {
       </section>
 
       {/* Trending Topics Section */}
-      <section className="py-12 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-foreground dark:text-white mb-4">
+      <section className="py-12 bg-gray-50 transition-colors duration-300 dark:bg-gray-900">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-foreground dark:text-white">
               Trending Topics
             </h2>
-            <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-muted-foreground dark:text-gray-400">
               Stay updated with the most discussed topics in Nepal today
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <div className="flex flex-wrap gap-3 justify-center mb-8">
             {[
               {
                 name: "Climate Action",
@@ -1370,7 +1372,7 @@ const HomePage = () => {
                 className={`px-4 py-2 rounded-full ${topic.color} transition-all duration-300 hover:scale-105 flex items-center space-x-2 shadow-sm hover:shadow-md`}
               >
                 <span className="font-medium">{topic.name}</span>
-                <span className="text-xs bg-white bg-opacity-60 px-2 py-1 rounded-full">
+                <span className="px-2 py-1 text-xs bg-white bg-opacity-60 rounded-full">
                   {topic.count}
                 </span>
               </a>
@@ -1380,19 +1382,19 @@ const HomePage = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-12 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground dark:text-white mb-4 gradient-text">
+      <section className="py-12 bg-white transition-colors duration-300 dark:bg-gray-800">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-foreground dark:text-white gradient-text">
               Explore Categories
             </h2>
-            <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground dark:text-gray-400">
               Stay informed with news from various sectors affecting Nepal and
               the world
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
             {[
               {
                 name: "Politics",
@@ -1434,15 +1436,15 @@ const HomePage = () => {
               <a
                 key={category.name}
                 href={`/category/${category.slug}`}
-                className="group block"
+                className="block group"
               >
-                <div className="card-hover bg-white dark:bg-gray-800 rounded-2xl p-6 text-center transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 shadow-sm dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/40">
+                <div className="p-6 text-center bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-300 card-hover dark:bg-gray-800 hover:scale-105 dark:border-gray-700 dark:shadow-gray-900/20 hover:shadow-lg dark:hover:shadow-gray-900/40">
                   <div
                     className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:rotate-6 transition-transform duration-300 shadow-lg`}
                   >
                     <span className="text-3xl">{category.icon}</span>
                   </div>
-                  <h3 className="font-semibold text-foreground dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  <h3 className="font-semibold transition-colors text-foreground dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400">
                     {category.name}
                   </h3>
                 </div>
@@ -1453,40 +1455,40 @@ const HomePage = () => {
       </section>
 
       {/* Search Section */}
-      <section className="py-8 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-foreground dark:text-white mb-2">
-              Find What You're Looking For
+      <section className="py-8 bg-white transition-colors duration-300 dark:bg-gray-800">
+        <div className="px-4 mx-auto max-w-4xl sm:px-6 lg:px-8">
+          <div className="mb-6 text-center">
+            <h2 className="mb-2 text-2xl font-bold text-foreground dark:text-white">
+              Find What You&apos;re Looking For
             </h2>
             <p className="text-muted-foreground dark:text-gray-400">
               Search through thousands of news articles
             </p>
           </div>
 
-          <div className="relative max-w-2xl mx-auto">
+          <div className="relative mx-auto max-w-2xl">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground dark:text-gray-500" />
+              <Search className="absolute left-4 top-1/2 w-5 h-5 transform -translate-y-1/2 text-muted-foreground dark:text-gray-500" />
               <input
                 type="text"
                 placeholder="Search for news, topics, or authors..."
-                className="w-full pl-12 pr-4 py-4 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-2xl focus:border-primary-400 dark:focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-900/20 transition-all duration-300 text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-gray-500 shadow-sm hover:shadow-md"
+                className="py-4 pr-4 pl-12 w-full bg-white rounded-2xl border-2 border-gray-200 shadow-sm transition-all duration-300 dark:bg-gray-900 dark:border-gray-700 focus:border-primary-400 dark:focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-900/20 text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-gray-500 hover:shadow-md"
               />
-              <Button className="absolute right-2 top-1/2 transform -translate-y-1/2 px-6 py-2 rounded-xl">
+              <Button className="absolute right-2 top-1/2 px-6 py-2 rounded-xl transform -translate-y-1/2">
                 Search
               </Button>
             </div>
 
             {/* Quick Search Tags */}
-            <div className="flex flex-wrap justify-center gap-2 mt-4">
-              <span className="text-sm text-muted-foreground dark:text-gray-400 mr-2">
+            <div className="flex flex-wrap gap-2 justify-center mt-4">
+              <span className="mr-2 text-sm text-muted-foreground dark:text-gray-400">
                 Popular:
               </span>
               {["Politics", "Technology", "Climate", "Business", "Sports"].map(
                 (tag) => (
                   <button
                     key={tag}
-                    className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-full transition-colors duration-200"
+                    className="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded-full transition-colors duration-200 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-300"
                   >
                     {tag}
                   </button>
@@ -1498,22 +1500,22 @@ const HomePage = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-secondary-600 dark:from-primary-700 dark:to-secondary-700 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-6">
-            <Globe className="h-8 w-8 text-white mr-3" />
+      <section className="py-16 bg-gradient-to-r from-primary-600 to-secondary-600 dark:from-primary-700 dark:to-secondary-700">
+        <div className="px-4 mx-auto max-w-4xl text-center sm:px-6 lg:px-8">
+          <div className="flex justify-center items-center mb-6">
+            <Globe className="mr-3 w-8 h-8 text-white" />
             <h2 className="text-3xl font-bold text-white">Stay Connected</h2>
           </div>
-          <p className="text-white/90 mb-8 text-lg">
+          <p className="mb-8 text-lg text-white/90">
             Get the latest news from Nepal delivered to your inbox
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <div className="flex flex-col gap-4 mx-auto max-w-md sm:flex-row">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-xl border-0 bg-white/10 dark:bg-white/5 backdrop-blur-sm text-white placeholder-white/70 dark:placeholder-white/60 focus:bg-white/20 dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-white/30 transition-all"
+              className="flex-1 px-6 py-4 text-white rounded-xl border-0 backdrop-blur-sm transition-all bg-white/10 dark:bg-white/5 placeholder-white/70 dark:placeholder-white/60 focus:bg-white/20 dark:focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-white/30"
             />
-            <Button className="bg-white dark:bg-gray-100 text-primary-600 dark:text-primary-700 hover:bg-white/90 dark:hover:bg-gray-200 px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+            <Button className="px-8 py-4 font-semibold bg-white rounded-xl shadow-lg transition-all dark:bg-gray-100 text-primary-600 dark:text-primary-700 hover:bg-white/90 dark:hover:bg-gray-200 hover:shadow-xl">
               Subscribe
             </Button>
           </div>
@@ -1521,13 +1523,13 @@ const HomePage = () => {
       </section>
 
       {/* Weather & Social Section */}
-      <section className="py-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="py-8 bg-gradient-to-br from-blue-50 to-indigo-50 transition-colors duration-300 dark:from-gray-800 dark:to-gray-900">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Weather Widget */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/20 hover:shadow-xl dark:hover:shadow-gray-900/40 transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
-              <h3 className="text-xl font-bold text-foreground dark:text-white mb-4 flex items-center">
-                <Globe className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
+            <div className="p-6 bg-white rounded-2xl border border-gray-200 shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:shadow-gray-900/20 hover:shadow-xl dark:hover:shadow-gray-900/40 dark:border-gray-700">
+              <h3 className="flex items-center mb-4 text-xl font-bold text-foreground dark:text-white">
+                <Globe className="mr-2 w-5 h-5 text-blue-600 dark:text-blue-400" />
                 Nepal Weather Today
               </h3>
               <div className="grid grid-cols-3 gap-4">
@@ -1553,9 +1555,9 @@ const HomePage = () => {
                 ].map((weather) => (
                   <div
                     key={weather.city}
-                    className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/30"
+                    className="p-3 text-center bg-blue-50 rounded-xl border border-blue-100 dark:bg-blue-900/20 dark:border-blue-800/30"
                   >
-                    <div className="text-2xl mb-1">{weather.condition}</div>
+                    <div className="mb-1 text-2xl">{weather.condition}</div>
                     <div className="font-semibold text-foreground dark:text-white">
                       {weather.city}
                     </div>
@@ -1571,9 +1573,9 @@ const HomePage = () => {
             </div>
 
             {/* Social Media Feed */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/20 hover:shadow-xl dark:hover:shadow-gray-900/40 transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
-              <h3 className="text-xl font-bold text-foreground dark:text-white mb-4 flex items-center">
-                <MessageCircle className="h-5 w-5 mr-2 text-green-600 dark:text-green-400" />
+            <div className="p-6 bg-white rounded-2xl border border-gray-200 shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:shadow-gray-900/20 hover:shadow-xl dark:hover:shadow-gray-900/40 dark:border-gray-700">
+              <h3 className="flex items-center mb-4 text-xl font-bold text-foreground dark:text-white">
+                <MessageCircle className="mr-2 w-5 h-5 text-green-600 dark:text-green-400" />
                 Social Buzz
               </h3>
               <div className="space-y-4">
@@ -1602,9 +1604,9 @@ const HomePage = () => {
                 ].map((post, index) => (
                   <div
                     key={index}
-                    className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200 border border-gray-100 dark:border-gray-600"
+                    className="p-3 bg-gray-50 rounded-lg border border-gray-100 transition-colors duration-200 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600"
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex justify-between items-center mb-2">
                       <span
                         className={`px-2 py-1 text-xs font-semibold rounded-full ${post.color} dark:opacity-90`}
                       >
@@ -1617,7 +1619,7 @@ const HomePage = () => {
                     <p className="text-sm text-foreground dark:text-white">
                       {post.content}
                     </p>
-                    <p className="text-xs text-muted-foreground dark:text-gray-400 mt-1">
+                    <p className="mt-1 text-xs text-muted-foreground dark:text-gray-400">
                       {post.handle}
                     </p>
                   </div>

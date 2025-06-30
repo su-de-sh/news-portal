@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "components/ui/Button";
-import { Input } from "components/ui/Input";
-import { registerUser } from "lib/auth";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { signIn } from "@/lib/auth";
 import Link from "next/link";
 
 const RegisterPage = () => {
@@ -21,14 +21,22 @@ const RegisterPage = () => {
     setIsLoading(true);
 
     try {
-      await registerUser({ email, password, name });
-      router.push("/login"); // Redirect to login after successful registration
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password, name }),
+      });
+
+      if (res.ok) {
+        router.push("/login"); // Redirect to login after successful registration
+      } else {
+        const data = await res.json();
+        setError(data.message || "Registration failed. Please try again.");
+      }
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Registration failed. Please try again."
-      );
+      setError("Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
     }

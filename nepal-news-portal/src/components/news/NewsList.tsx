@@ -1,16 +1,20 @@
 import React from "react";
 import NewsCard from "./NewsCard";
-import { News } from "types";
+import { News } from "@/types";
 
 interface NewsListProps {
   articles: News[];
+  variant?: "default" | "featured" | "compact";
 }
 
-const NewsList: React.FC<NewsListProps> = ({ articles }) => {
+const NewsList: React.FC<NewsListProps> = ({
+  articles,
+  variant = "default",
+}) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="space-y-6">
       {articles.map((article) => (
-        <NewsCard key={article.id} news={article} />
+        <NewsCard key={article.id} news={article} variant={variant} />
       ))}
     </div>
   );

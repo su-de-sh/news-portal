@@ -20,7 +20,7 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = "light",
   storageKey = "theme",
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
@@ -31,8 +31,12 @@ export function ThemeProvider({
     const stored = localStorage.getItem(storageKey) as Theme;
     if (stored) {
       setTheme(stored);
+    } else {
+      // If no stored theme, set and store the default theme
+      setTheme(defaultTheme);
+      localStorage.setItem(storageKey, defaultTheme);
     }
-  }, [storageKey]);
+  }, [storageKey, defaultTheme]);
 
   useEffect(() => {
     const root = window.document.documentElement;

@@ -1,88 +1,111 @@
-// Auth utilities for user registration and login
-import { User } from "types";
+import {
+  getServerSession,
+  type SessionStrategy,
+  type AuthOptions,
+} from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
+import { UserRole } from "@/types";
+import { prisma } from "./prisma";
 
-export interface RegisterData {
-  email: string;
-  password: string;
-  name?: string;
+declare module "next-auth" {
+  interface User {
+    id: string;
+    role: UserRole;
+  }
+
+  interface JWT {
+    id: string;
+    role: UserRole;
+  }
 }
 
-export interface LoginData {
-  email: string;
-  password: string;
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: string;
+    role: UserRole;
+  }
 }
 
-export interface AuthResponse {
-  success: boolean;
-  user?: User;
-  token?: string;
-  message?: string;
+if (!process.env.NEXTAUTH_SECRET) {
+  throw new Error("Please provide process.env.NEXTAUTH_SECRET");
 }
 
-export async function registerUser(data: RegisterData): Promise<AuthResponse> {
-  try {
-    const response = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+export const authOptions: AuthOptions = {
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
       },
-      body: JSON.stringify(data),
-    });
+      async authorize(credentials) {
+        try {
+          if (!credentials || !credentials.email || !credentials.password) {
+            throw new Error("Missing credentials");
+          }
 
-    const result = await response.json();
+          const user = await prisma.user.findUnique({
+            where: {
+              email: credentials.email,
+            },
+          });
 
-    if (!response.ok) {
-      throw new Error(result.message || "Registration failed");
-    }
+          if (!user) {
+            throw new Error("Invalid credentials");
+          }
 
-    return result;
-  } catch (error) {
-    console.error("Registration error:", error);
-    throw error;
-  }
-}
+          const isPasswordValid = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
 
-export async function loginUser(data: LoginData): Promise<AuthResponse> {
-  try {
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+          if (!isPasswordValid) {
+            throw new Error("Invalid credentials");
+          }
+
+          return {
+            id: user.id.toString(),
+            name: user.name,
+            email: user.email,
+            role: user.role as UserRole,
+          };
+        } catch (error) {
+          console.error("Auth error:", error);
+          return null;
+        }
       },
-      body: JSON.stringify(data),
-    });
+    }),
+  ],
+  pages: {
+    signIn: "/login",
+    error: "/login",
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user && token) {
+        session.user.id = token.id as string;
+        session.user.role = token.role as UserRole;
+      }
+      return session;
+    },
+  },
+  session: {
+    strategy: "jwt" as const,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+};
 
-    const result = await response.json();
+export { signIn, signOut, useSession } from "next-auth/react";
 
-    if (!response.ok) {
-      throw new Error(result.message || "Login failed");
-    }
-
-    // Store token in localStorage
-    if (result.token) {
-      localStorage.setItem("auth_token", result.token);
-    }
-
-    return result;
-  } catch (error) {
-    console.error("Login error:", error);
-    throw error;
-  }
-}
-
-export function logout(): void {
-  localStorage.removeItem("auth_token");
-  // Redirect to login page
-  window.location.href = "/login";
-}
-
-export function getAuthToken(): string | null {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("auth_token");
-  }
-  return null;
-}
-
-export function isAuthenticated(): boolean {
-  return !!getAuthToken();
+export async function auth() {
+  const session = await getServerSession(authOptions);
+  return session;
 }

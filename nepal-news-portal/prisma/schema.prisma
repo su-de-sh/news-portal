@@ -2,12 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") // Used for direct connection, e.g. for migrations
 }
 
 model User {
@@ -23,6 +25,7 @@ model User {
   articles  News[]
   comments  Comment[]
 
+  @@index([email])
   @@map("users")
 }
 
@@ -46,6 +49,10 @@ model News {
   tags        Tag[]     @relation("NewsToTag")
   comments    Comment[]
 
+  @@index([slug])
+  @@index([authorId])
+  @@index([categoryId])
+  @@index([publishedAt])
   @@map("news")
 }
 
@@ -57,6 +64,7 @@ model Category {
   color       String  @default("#3B82F6")
   news        News[]
 
+  @@index([slug])
   @@map("categories")
 }
 
@@ -66,6 +74,7 @@ model Tag {
   slug String @unique
   news News[] @relation("NewsToTag")
 
+  @@index([slug])
   @@map("tags")
 }
 
@@ -79,6 +88,9 @@ model Comment {
   author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   news      News     @relation(fields: [newsId], references: [id], onDelete: Cascade)
 
+  @@index([authorId])
+  @@index([newsId])
+  @@index([createdAt])
   @@map("comments")
 }
 
